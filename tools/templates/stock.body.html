@@ -1,0 +1,92 @@
+
+        <nav aria-label="Breadcrumb" class="crumbs"><a href="../projects.html">Projects</a><span>/</span><span>Stock Backtesting &amp; Forecasting</span></nav>
+        <div class="page-head">
+            <div class="eyebrow">Tool</div>
+            <h1>Stock Backtesting &amp; Forecasting</h1>
+            <p class="lede">Pick any NSE-listed stock and let up to 20+ models (machine learning, deep learning and classic time-series) forecast it. Each model is backtested on data it has never seen, ranked, and the best one is chosen without peeking at the test period.</p>
+            <p class="tool-note"><strong>Runs on your computer.</strong> The models are Python programs, so this page uses the same local helper as the YouTube Downloader. Share prices come from Yahoo Finance and the stock list from NSE.</p>
+            <p class="tool-note warn"><strong>For learning only.</strong> This is not investment advice. Past performance does not predict the future, and a good backtest can still fail in live markets. Please speak to a registered adviser before investing.</p>
+        </div>
+
+        <section class="tool-section">
+            <h2 class="tool-h2"><span class="step-no">0</span>Start the helper</h2>
+            <div class="tool-panel">
+                <div class="helper-status" data-helper-status data-feature="stocks" data-state="off">
+                    <span class="hs-dot" aria-hidden="true"></span>
+                    <div class="hs-body"><strong class="hs-text">Checking for the helper…</strong><div class="hs-detail"></div></div>
+                    <button class="btn hs-retry" type="button">Check again</button>
+                </div>
+                <details>
+                    <summary>How do I start the helper? (one-time setup)</summary>
+                    <ol class="howto">
+                        <li>Install <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python 3.10 – 3.12</a> (on Windows tick <em>Add Python to PATH</em>).</li>
+                        <li>Open the <code>helper</code> folder from your site files. <strong>Windows:</strong> double-click <code>start_helper.bat</code>. <strong>Mac / Linux:</strong> run <code>./start_helper.sh</code>.</li>
+                        <li>The first start installs the packages (a few minutes). For the stock tool it needs <code>numpy pandas yfinance nselib scikit-learn statsmodels xgboost lightgbm catboost</code>. <code>prophet</code>, <code>arch</code> and <code>tensorflow</code> are optional extras that add more models.</li>
+                        <li>Keep the window open. This page turns green when the helper is connected.</li>
+                    </ol>
+                </details>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <h2 class="tool-h2"><span class="step-no">1</span>Choose a stock</h2>
+            <div class="tool-panel">
+                <div class="inline-fields">
+                    <div class="field">
+                        <label for="st-search">Search symbol</label>
+                        <input id="st-search" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. RELIANCE, TCS, INFY">
+                    </div>
+                    <div class="field">
+                        <label for="st-select">Stock (NSE)</label>
+                        <select id="st-select"></select>
+                    </div>
+                    <div class="field">
+                        <label for="st-horizon">Forecast horizon</label>
+                        <select id="st-horizon"><option value="1">1 month</option><option value="3">3 months</option><option value="6" selected>6 months</option><option value="12">12 months</option></select>
+                    </div>
+                </div>
+                <p id="st-count" class="hint"></p>
+                <label class="check"><input id="st-dl" type="checkbox"> Include deep-learning models (LSTM, GRU, CNN, MLP). Slower, and needs TensorFlow.</label>
+                <div class="btn-row"><button id="st-run" class="btn btn-primary" type="button">{{icon:play}} Run analysis</button></div>
+                <div id="st-prog" hidden>
+                    <div class="big-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="st-bar"><div id="st-fill"></div></div>
+                    <div class="prog-meta"><strong id="st-pct">0%</strong><span id="st-run">Running: 00:00</span><span id="st-msg" class="hint"></span></div>
+                </div>
+                <p id="st-error" class="result-err" hidden role="alert"></p>
+            </div>
+        </section>
+
+        <section class="tool-section" id="st-results" hidden>
+            <h2 class="tool-h2"><span class="step-no">2</span>Results for <span id="sr-ticker" style="margin-left:.4ch"></span></h2>
+            <div class="tool-panel" id="sr-summary"></div>
+            <div class="tool-panel">
+                <div class="field" style="max-width:340px"><label for="sr-model">Show charts for model</label><select id="sr-model"></select></div>
+                <h3 class="sr-h">Backtest: forecast vs actual price on the untouched test period</h3>
+                <div id="ch-test" class="mchart"></div>
+                <h3 class="sr-h">Backtest: following the model’s signals vs simply holding</h3>
+                <p class="hint">Go long when the model expects a rise from the previous close, short when it expects a fall, with 0.05% cost on every change of position. Starts at 100.</p>
+                <div id="ch-equity" class="mchart"></div>
+                <h3 class="sr-h">Forecast</h3>
+                <div id="sr-future-stats" class="stat-grid"></div>
+                <div id="ch-future" class="mchart"></div>
+                <p class="hint">Future prices are produced day by day from the model’s own earlier predictions, so errors compound. Read the line as a possible path, not a promise.</p>
+            </div>
+            <div class="tool-panel">
+                <h3 class="sr-h" style="margin-top:0">All models compared</h3>
+                <p class="hint">Click a column to sort and a row to chart it. Test columns are measured on data the models never saw. A ✓ in “Gates” means the model passed every quality check on the validation period (accuracy above chance, Sharpe above 0.5, drawdown under 30%, enough trades).</p>
+                <div class="table-scroll"><table class="metric-table" id="sr-table"></table></div>
+            </div>
+            <div class="tool-panel" id="sr-imp" hidden></div>
+            <details class="tool-panel">
+                <summary>What do these numbers mean?</summary>
+                <ul class="howto plain">
+                    <li><strong>RMSE / MAE / MAPE</strong>: typical size of the price error (lower is better). MAPE is a percentage of price.</li>
+                    <li><strong>R²</strong>: share of price movement explained. Prices trend, so this is usually high even for weak models; judge direction and returns instead.</li>
+                    <li><strong>Direction %</strong>: how often the model got up-versus-down right. Around 50% is a coin flip.</li>
+                    <li><strong>Backtest return</strong>: result of trading the model’s signals over the test period, after costs.</li>
+                    <li><strong>Sharpe</strong>: return per unit of risk, annualised. Above 1 is good, below 0.5 is weak.</li>
+                    <li><strong>Max drawdown</strong>: the deepest fall from a peak during the test.</li>
+                    <li><strong>Selection</strong>: the best model is picked on a separate validation period, never on the test period, to avoid flattering results.</li>
+                </ul>
+            </details>
+        </section>

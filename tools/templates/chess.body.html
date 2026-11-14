@@ -1,0 +1,106 @@
+      <div class="chess-head">
+        <div>
+          <div class="eyebrow">Chess</div>
+          <h1>Game archive &amp; engine review</h1>
+        </div>
+        <p class="lede">Lichess, Chess.com or any PGN — with Stockfish, an evaluation bar and per-move clock times.</p>
+      </div>
+
+      <section class="card source" id="source-card" aria-label="Load games">
+        <div class="source-bar">
+          <button id="source-toggle" class="btn" type="button" aria-expanded="true" aria-controls="source-grid" title="Show or hide the game source">{{icon:folder}}<span>Source</span><svg class="icon chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <select id="game-dropdown" class="field-input" aria-label="Game"><option value="">Load games from a platform, or upload a PGN database…</option></select>
+        </div>
+        <div class="source-grid" id="source-grid">
+          <div>
+            <label class="field-label" for="platform-select">Platform</label>
+            <select id="platform-select" class="field-input">
+              <option value="lichess">Lichess</option>
+              <option value="chesscom">Chess.com</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="chess-username">Username</label>
+            <input id="chess-username" class="field-input" type="text" value="x15kaustubh" autocomplete="off" spellcheck="false" placeholder="Username">
+          </div>
+          <div>
+            <label class="field-label" for="year-select">Year</label>
+            <select id="year-select" class="field-input"></select>
+          </div>
+          <div class="source-actions">
+            <button id="load-btn" class="btn btn-primary" type="button">Load games</button>
+            <label class="btn" for="pgn-file-input" title="Import a local .pgn database">{{icon:upload}} Upload PGN</label>
+            <input type="file" id="pgn-file-input" accept=".pgn,.PGN,.txt" hidden>
+          </div>
+        </div>
+        <p id="load-status" class="load-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <div class="workspace">
+        <!-- ===== Board column ===== -->
+        <div class="board-col">
+          <div class="player" id="player-top"><span class="pdot black"></span><span class="pname">Black</span><span class="prating"></span></div>
+
+          <div class="board-row">
+            <div id="eval-bar" class="evalbar" role="img" aria-label="Evaluation bar" title="Evaluation: White at the bottom, Black at the top">
+              <span id="eval-top" class="evalnum top"></span>
+              <div id="eval-fill" class="evalfill" style="height:50%"></div>
+              <span id="eval-bottom" class="evalnum bottom"></span>
+            </div>
+            <div class="board-wrap">
+              <div id="board" class="board" role="grid" aria-label="Chess board"></div>
+              <svg id="arrow-layer" class="arrow-layer" viewBox="0 0 80 80" aria-hidden="true"></svg>
+            </div>
+          </div>
+
+          <div class="player" id="player-bottom"><span class="pdot white"></span><span class="pname">White</span><span class="prating"></span></div>
+
+          <div class="board-controls" role="toolbar" aria-label="Move navigation">
+            <button id="nav-first" class="ctl" type="button" title="First move (Home)" aria-label="First move">{{icon:first}}</button>
+            <button id="nav-prev"  class="ctl ctl-main" type="button" title="Previous move (←)" aria-label="Previous move">{{icon:prev}}</button>
+            <button id="nav-next"  class="ctl ctl-main" type="button" title="Next move (→)" aria-label="Next move">{{icon:next}}</button>
+            <button id="nav-last"  class="ctl" type="button" title="Last move (End)" aria-label="Last move">{{icon:last}}</button>
+            <span class="ctl-sep"></span>
+            <button id="flip-btn" class="ctl" type="button" title="Flip board (F)" aria-label="Flip board">{{icon:flip}}</button>
+            <label class="arrow-toggle" title="Draw the engine's best move on the board"><input id="arrow-check" type="checkbox" checked> Best-move arrow</label>
+          </div>
+        </div>
+
+        <!-- ===== Side column ===== -->
+        <div class="side-col">
+          <div class="side-inner">
+            <section class="card engine" aria-label="Engine">
+              <div class="engine-top">
+                <div class="engine-title">{{icon:cpu}}<span>Engine</span></div>
+                <select id="engine-select" class="field-input engine-select" aria-label="Engine">
+                  <option value="auto">Auto — cloud, then Stockfish</option>
+                  <option value="local">Stockfish 19 (in your browser)</option>
+                  <option value="cloud">Lichess cloud only</option>
+                </select>
+              </div>
+              <div class="engine-score">
+                <div id="eval-score" class="score">0.00</div>
+                <div class="score-meta">
+                  <span id="eval-source" class="chip">Ready</span>
+                  <span id="eval-depth" class="depth"></span>
+                </div>
+              </div>
+              <dl class="engine-rows">
+                <div><dt>Best move</dt><dd id="engine-best-move" class="mono">—</dd></div>
+                <div><dt>Line</dt><dd id="engine-pv" class="mono pv">—</dd></div>
+              </dl>
+              <p id="engine-note" class="engine-note" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="card moves" aria-label="Moves">
+              <div class="moves-head">
+                <div class="engine-title">{{icon:clock}}<span>Moves &amp; clock</span></div>
+                <span id="total-moves-badge" class="chip">0 moves</span>
+              </div>
+              <div id="game-meta" class="game-meta"><span class="muted">No game loaded yet…</span></div>
+              <div class="legend"><span>Time per move</span><span class="tchip t-fast">≤ 5 s</span><span class="tchip t-mid">≤ 30 s</span><span class="tchip t-slow">&gt; 30 s</span></div>
+              <div id="moves-list" class="moves-list" tabindex="0" aria-label="Move list"><span class="muted pad">Moves will appear here…</span></div>
+            </section>
+          </div>
+        </div>
+      </div>
