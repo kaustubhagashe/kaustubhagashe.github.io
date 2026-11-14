@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-palette="gold">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Puzzles &amp; Games · Kaustubh Agashe</title>
+  <meta name="description" content="Puzzles and games to play in the browser: Wordle, Crossword, Bubble Shooter, Block Blast, Tic Tac Toe and more.">
+  <meta name="theme-color" content="#1a1712">
+  <meta property="og:title" content="Puzzles &amp; Games · Kaustubh Agashe">
+  <meta property="og:description" content="Puzzles and games to play in the browser: Wordle, Crossword, Bubble Shooter, Block Blast, Tic Tac Toe and more.">
+  <meta property="og:image" content="assets/social-card.png">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Fraunces144pt-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <script>(function(){var r=document.documentElement,t,p;try{t=localStorage.getItem("site-theme");p=localStorage.getItem("site-palette");}catch(e){}var m={blue:"cobalt",emerald:"teal",amber:"gold"};p=m[p]||p;r.dataset.theme=(t==="bright")?"bright":"dark";r.dataset.palette=/^(teal|gold|cobalt|ember|crimson|violet)$/.test(p)?p:"gold";})();</script>
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/puzzles.css">
+  <link rel="stylesheet" href="css/games.css">
+</head>
+<body class="">
+<div class="shell">
+  <aside class="sidebar" id="sidebar" aria-label="Site">
+    <a class="brand" href="index.html" aria-label="Kaustubh Dattatraya Agashe — home" title="Kaustubh Dattatraya Agashe"><span class="brand-mark"><img src="assets/logo-mark.png" alt="" width="64" height="64"></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="nav-label">Explore</div>
+        <a href="index.html" data-key="home"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg><span>Home</span></a>
+        <a href="about.html" data-key="about"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg><span>About</span><span class="soon">Soon</span></a>
+        <a href="projects.html" data-key="projects"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Projects</span></a>
+        <a href="chess.html" data-key="chess"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 12h18M12 3v18"/><path d="M3 3h9v9H3zM12 12h9v9h-9z" fill="currentColor" stroke="none" opacity=".35"/></svg><span>Chess</span></a>
+        <a href="puzzles.html" data-key="puzzles" aria-current="page"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M12 3a2 2 0 0 1 2 2v1h3a1 1 0 0 1 1 1v3h-1a2 2 0 1 0 0 4h1v3a1 1 0 0 1-1 1h-3v-1a2 2 0 1 0-4 0v1H7a1 1 0 0 1-1-1v-3h1a2 2 0 1 0 0-4H6V7a1 1 0 0 1 1-1h3V5a2 2 0 0 1 2-2z"/></svg><span>Puzzles &amp; Games</span></a>
+        <a href="wall.html" data-key="wall"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.7"/><path d="M21 16l-5-5L8 19"/></svg><span>My Wall</span></a>
+        <a href="blog.html" data-key="blog"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span>Blog</span><span class="soon">Soon</span></a>
+        <a href="advisory.html" data-key="advisory"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg><span>Investment Advisory</span><span class="soon">Soon</span></a>
+        <a href="courses.html" data-key="courses"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z"/><path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg><span>Courses</span><span class="soon">Soon</span></a>
+        <a href="library.html" data-key="library"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M4 4v16M9 4v16"/><path d="M14 5.5l5 1-3.4 13.8-5-1z"/></svg><span>My Library</span><span class="soon">Soon</span></a>
+        <a href="apps.html" data-key="apps"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/></svg><span>My Apps</span></a>
+    </nav>
+    <div class="side-foot">
+      <div class="palette-row"><div class="swatches" role="group" aria-label="Accent colour"><button class="swatch" type="button" data-palette="gold" aria-label="Yellow accent" title="Yellow" aria-pressed="false"></button>
+          <button class="swatch" type="button" data-palette="teal" aria-label="Green accent" title="Green" aria-pressed="false"></button>
+          <button class="swatch" type="button" data-palette="cobalt" aria-label="Blue accent" title="Blue" aria-pressed="false"></button>
+          <button class="swatch" type="button" data-palette="ember" aria-label="Ember accent" title="Ember" aria-pressed="false"></button>
+          <button class="swatch" type="button" data-palette="crimson" aria-label="Crimson accent" title="Crimson" aria-pressed="false"></button>
+          <button class="swatch" type="button" data-palette="violet" aria-label="Violet accent" title="Violet" aria-pressed="false"></button></div></div>
+        <div class="palette-row"><button class="mode-btn" type="button" aria-pressed="false" aria-label="Toggle bright and dark mode"><svg class="icon i-sun" viewBox="0 0 24 24" aria-hidden="true" ><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="icon i-moon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg><span class="mode-text">Bright</span></button></div>
+      <p class="copy">&copy; 2026 Kaustubh Dattatraya Agashe.<br>Hosted on GitHub Pages.</p>
+    </div>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <a href="index.html" aria-label="Kaustubh Dattatraya Agashe — home"><span class="brand-mark"><img src="assets/logo-mark-192.png" alt="" width="38" height="38"></span></a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </header>
+    <main class="page" id="main">
+      <div class="page-head">
+        <div class="eyebrow">Puzzles &amp; brain teasers</div>
+        <h1>Puzzles &amp; Games</h1>
+        <p class="lede">Choose a puzzle to play. More games will be added here over time.</p>
+        <p class="support">If you want to support me, send help at UPI: <strong>“kaustubh.agashe@okicici”</strong> and send a note at <a href="mailto:kaustubh.agashe@gmail.com">kaustubh.agashe@gmail.com</a>.</p>
+        <div class="picker">
+          <label for="puzzle-select" class="field-label" style="margin:0">Choose a Puzzle/Game</label>
+          <select id="puzzle-select" class="field-input" aria-controls="puzzle-panels"></select>
+        </div>
+      </div>
+
+      <div id="puzzle-panels">
+      <section id="puzzle-impossible-number" data-puzzle-panel="impossible-number" data-title="The Impossible Number Game" class="number-game card">
+        <header class="ng-head">
+          <div>
+            <h2>The Impossible Number Game</h2>
+            <p>Can you guess the secret number? You have six chances. Every HIGHER or LOWER clue is truthful, but the game adapts the possibilities so the secret number cannot be one of your guesses.</p>
+          </div>
+          <span class="chip accent">6 chances · 1–100</span>
+        </header>
+
+        <div class="ng-body">
+          <div class="ng-main">
+            <div class="ng-secret">
+              <p class="field-label" style="text-align:center">The secret number</p>
+              <p id="secret-display" aria-live="polite">? ? ?</p>
+              <p id="secret-caption">Revealed after your sixth guess</p>
+            </div>
+
+            <div class="ng-chances">
+              <span>Chances remaining</span>
+              <strong id="chances-remaining">6 of 6</strong>
+            </div>
+            <div id="chance-track" class="ng-track" aria-label="Six chances"></div>
+
+            <form id="number-guess-form">
+              <label for="number-guess" class="field-label">Enter your guess</label>
+              <div class="ng-row">
+                <input id="number-guess" class="field-input" type="number" min="1" max="100" step="1" inputmode="numeric" placeholder="Enter 1–100" required>
+                <button id="submit-guess" class="btn btn-primary" type="submit">Guess</button>
+              </div>
+              <p id="input-help" class="ng-help">Enter a whole number between 1 and 100.</p>
+            </form>
+
+            <div id="guess-feedback" class="ng-feedback" role="status" aria-live="polite" hidden>
+              <p id="feedback-direction"></p>
+              <p id="feedback-detail"></p>
+            </div>
+
+            <div id="game-result" class="ng-result" role="status" aria-live="polite" hidden>
+              <p class="ng-result-title">You ran out of chances!</p>
+              <p>The secret number was</p>
+              <p id="revealed-number" class="ng-revealed"></p>
+              <p>The clues were all consistent. Better luck next time!</p>
+            </div>
+          </div>
+
+          <aside class="ng-side">
+            <div class="ng-side-head">
+              <h3>Your guess history</h3>
+              <span id="history-count">0 guesses</span>
+            </div>
+            <div id="guess-history"></div>
+            <button id="new-game" class="btn" type="button" style="width:100%;margin-top:18px"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M20 11a8 8 0 0 0-14.9-3M4 5v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3M20 19v-4h-4"/></svg> Start a new game</button>
+          </aside>
+        </div>
+
+        <footer class="ng-foot">
+          <details>
+            <summary>What’s the mathematical trick?</summary>
+            <p>After each guess, the game removes that number and keeps the larger of the two remaining intervals. If your guess is outside the current possible interval, it gives the truthful clue without shrinking the interval. After the sixth clue, it randomly selects a number from the surviving interval. That number was never guessed, and every HIGHER/LOWER clue agrees with it.</p>
+          </details>
+        </footer>
+      </section>
+
+      <section id="puzzle-eight-queens" data-puzzle-panel="eight-queens" data-title="The Eight Queens Puzzle" class="pz card" hidden>
+        <header class="pz-head">
+          <div>
+            <h2>The Eight Queens Puzzle</h2>
+            <p>Place eight queens on the chessboard so that no two queens attack each other — no two may share a row, a column or a diagonal. Click a square to place a queen, click a queen to take it back, or drag a queen from the tray.</p>
+          </div>
+          <span class="chip accent">8 × 8 · 92 solutions</span>
+        </header>
+
+        <div class="pz-body">
+          <div class="pz-boardcol">
+            <div class="pz-board" id="q-board" role="grid" aria-label="Chessboard for the eight queens puzzle"></div>
+            <div id="q-msg" class="pz-msg" role="status" aria-live="polite">Place your first queen to begin.</div>
+          </div>
+
+          <aside class="pz-side">
+            <div class="pz-side-head"><h3>Your queens</h3><span id="q-left">8 left</span></div>
+            <div class="pz-tray" id="q-tray" aria-label="Queens still to place"></div>
+            <dl class="pz-stats">
+              <div><dt>On the board</dt><dd id="q-placed">0 / 8</dd></div>
+              <div><dt>Attacking pairs</dt><dd id="q-pairs">0</dd></div>
+            </dl>
+            <div class="pz-actions">
+              <button id="q-show" class="btn btn-primary" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Show answer</button>
+              <button id="q-clear" class="btn" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M20 11a8 8 0 0 0-14.9-3M4 5v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3M20 19v-4h-4"/></svg> Clear board</button>
+            </div>
+            <p id="q-which" class="pz-note" aria-live="polite">There are 92 solutions in all. “Show answer” displays one of them.</p>
+          </aside>
+        </div>
+
+        <footer class="pz-explain">
+          <h3>How can it be solved?</h3>
+          <div class="pz-explain-grid">
+            <div>
+              <h4>1 · Use the rules to cut the search</h4>
+              <p>Eight queens means exactly one queen in every row and every column. Instead of choosing 8 squares out of 64 (4,426,165,368 ways), you only need to decide which column the queen of each row goes in: at most 8! = 40,320 arrangements.</p>
+            </div>
+            <div>
+              <h4>2 · Place row by row and backtrack</h4>
+              <p>Put a queen in the top row, then in the next row choose the first column that is not attacked by the queens already placed. If a row has no safe square, step back, move the previous queen one column along, and continue. This “backtracking” search finds all solutions after visiting just 2,057 partial boards.</p>
+            </div>
+            <div>
+              <h4>3 · Keep track of attacks</h4>
+              <p>Two squares share a diagonal when row − column is the same, or row + column is the same. A program only needs three lists — used columns, used “\” diagonals, used “/” diagonals — to test a square instantly. By hand, cross out every square a new queen attacks.</p>
+            </div>
+            <div>
+              <h4>4 · Count the answers</h4>
+              <p>The search finds 92 solutions. Rotating or reflecting the board turns one solution into another, so only 12 are truly different; every other solution is a rotated or mirrored copy of one of those 12.</p>
+            </div>
+          </div>
+        </footer>
+      </section>
+
+      <section id="puzzle-knights-tour" data-puzzle-panel="knights-tour" data-title="The Knight’s Tour" class="pz card" hidden>
+        <header class="pz-head">
+          <div>
+            <h2>The Knight’s Tour</h2>
+            <p>Click any square to place the knight, then keep moving it in L-shapes — two squares one way and one square at a right angle — so that it lands on every one of the 64 squares exactly once. Your route is traced with a line as you go.</p>
+          </div>
+          <span class="chip accent">64 squares · each once</span>
+        </header>
+
+        <div class="pz-body">
+          <div class="pz-boardcol">
+            <div class="pz-board" id="k-board" role="grid" aria-label="Chessboard for the knight’s tour">
+              <svg id="k-trace" class="pz-trace" viewBox="0 0 8 8" aria-hidden="true"></svg>
+            </div>
+            <div id="k-msg" class="pz-msg" role="status" aria-live="polite">Click a square to place your knight.</div>
+          </div>
+
+          <aside class="pz-side">
+            <div class="pz-side-head"><h3>Your tour</h3><span id="k-count">0 / 64</span></div>
+            <div class="pz-progress" aria-hidden="true"><span id="k-bar"></span></div>
+            <dl class="pz-stats">
+              <div><dt>Start square</dt><dd id="k-start">—</dd></div>
+              <div><dt>Knight is on</dt><dd id="k-now">—</dd></div>
+            </dl>
+            <label class="pz-check"><input type="checkbox" id="k-hints" checked> Show legal moves</label>
+            <div class="pz-actions">
+              <button id="k-show" class="btn btn-primary" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Show answer</button>
+              <button id="k-undo" class="btn" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg> Undo move</button>
+              <button id="k-reset" class="btn" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M20 11a8 8 0 0 0-14.9-3M4 5v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3M20 19v-4h-4"/></svg> Start over</button>
+            </div>
+            <p class="pz-note">“Show answer” traces a <em>closed</em> tour from your starting square: the last square is one knight’s move away from the first, so the route forms a loop.</p>
+          </aside>
+        </div>
+
+        <footer class="pz-explain">
+          <h3>How can it be solved?</h3>
+          <div class="pz-explain-grid">
+            <div>
+              <h4>1 · Warnsdorff’s rule</h4>
+              <p>Always move to the square from which the knight would have the <em>fewest</em> onward moves. Hard-to-reach squares are visited first, before they get cut off. This simple rule solves the tour from most starting squares without any backtracking.</p>
+            </div>
+            <div>
+              <h4>2 · Stay near the edges early</h4>
+              <p>Corners have only two exits and edge squares only three or four. Visit these awkward squares early; the centre squares keep many exits and can wait until the end.</p>
+            </div>
+            <div>
+              <h4>3 · Open and closed tours</h4>
+              <p>If the last square is a knight’s move from the first, the tour is <em>closed</em>: it is a loop that can be started from any square. Because the loop passes through all 64 squares, “Show answer” can start the same loop wherever you placed your knight.</p>
+            </div>
+            <div>
+              <h4>4 · Stuck? Backtrack</h4>
+              <p>If the knight has no unvisited square to go to before 64 squares are done, undo a few moves and choose another route. A computer does the same, trying alternatives until the tour is complete. There are 26,534,728,821,064 directed closed tours on an 8 × 8 board.</p>
+            </div>
+          </div>
+          <p class="pz-tip"><strong>Colour trick:</strong> a knight always changes square colour with every move. So after 63 moves it stands on the opposite colour from where it began — and a square a knight’s move from the start is always of that opposite colour, which is why a closed loop through all 64 squares can exist.</p>
+        </footer>
+      </section>
+
+      <section id="puzzle-tower-of-hanoi" data-puzzle-panel="tower-of-hanoi" data-title="The Tower of Hanoi" class="pz card" hidden>
+        <header class="pz-head">
+          <div>
+            <h2>The Tower of Hanoi</h2>
+            <p>Move the whole stack of rings from the Source tower to the Target tower, one ring at a time. Choose how many towers and rings you want to play with.</p>
+          </div>
+          <span class="chip accent">3 – 5 towers</span>
+        </header>
+
+        <div class="pz-body hn-layout">
+          <div class="pz-boardcol">
+            <div class="hn-board" id="hn-board" aria-label="Towers and rings"></div>
+            <div id="hn-msg" class="pz-msg" role="status" aria-live="polite"></div>
+          </div>
+
+          <aside class="pz-side">
+            <div class="hn-choosers">
+              <div><label class="field-label" for="hn-towers">Towers</label>
+                <select id="hn-towers" class="field-input"><option value="3" selected>3 towers</option><option value="4">4 towers</option><option value="5">5 towers</option></select></div>
+              <div><label class="field-label" for="hn-rings">Rings</label>
+                <select id="hn-rings" class="field-input"><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></div>
+            </div>
+            <dl class="pz-stats">
+              <div class="hn-moves-row"><dt>Moves made</dt><dd id="hn-moves">0</dd></div>
+              <div><dt>Fewest possible</dt><dd id="hn-best">15</dd></div>
+            </dl>
+            <div class="pz-actions">
+              <button id="hn-show" class="btn btn-primary" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Show answer</button>
+              <button id="hn-undo" class="btn" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg> Undo move</button>
+              <button id="hn-reset" class="btn" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M20 11a8 8 0 0 0-14.9-3M4 5v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3M20 19v-4h-4"/></svg> Start over</button>
+            </div>
+          </aside>
+        </div>
+
+        <div class="pz-rules" role="note">
+          <h3>Rules of the game</h3>
+          <ol>
+            <li>All the rings start stacked on the <strong>Source</strong> tower (the first one), largest at the bottom and smallest on top.</li>
+            <li>Your aim is to rebuild the same stack, in the same order, on the <strong>Target</strong> tower (the last one).</li>
+            <li>Move <strong>one ring at a time</strong>, and only the <strong>top</strong> ring of a tower. Click a tower to lift its top ring, then click the tower where it should go.</li>
+            <li>A <strong>larger ring may never be placed on a smaller ring</strong>.</li>
+            <li>With the extra towers you can park rings temporarily, so 4 or 5 towers need fewer moves than 3 towers. For 3 towers the minimum is 2<sup>n</sup> − 1 moves for n rings; for more towers the best-known (Frame–Stewart) numbers are shown.</li>
+          </ol>
+          <p class="pz-note">If the ring you pick has nowhere to go, or no move is possible at all, you will see a deadlock message — use “Undo move” or “Start over”.</p>
+        </div>
+      </section>
+
+      <section id="puzzle-hangman" data-puzzle-panel="hangman" data-title="Hangman" class="pz card hm" hidden>
+        <header class="pz-head">
+          <div>
+            <h2>Hangman</h2>
+            <p>Choose a topic and guess the hidden word or phrase one letter at a time. Every wrong letter adds a part to the hangman — you have seven lives to save him.</p>
+          </div>
+          <span class="chip accent">7 lives</span>
+        </header>
+
+        <div class="hm-grid">
+          <div class="hm-art">
+            <svg id="hm-figure" class="hm-fig" viewBox="0 0 240 280" role="img" aria-label="Hangman drawing">
+              <defs><linearGradient id="hm-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--hm-sky1)"/><stop offset="1" stop-color="var(--hm-sky2)"/></linearGradient></defs>
+              <rect width="240" height="280" rx="14" fill="url(#hm-sky)"/>
+              <circle cx="46" cy="48" r="20" fill="var(--hm-sun)" opacity=".9"/>
+              <path d="M0 250 Q60 232 120 246 T240 240 V280 H0Z" fill="var(--hm-ground)"/>
+              <g class="gal" stroke="var(--hm-wood)" stroke-width="9" stroke-linecap="round" fill="none">
+                <path d="M30 254 H120"/><path d="M75 254 V30"/><path d="M71 30 H176"/><path d="M75 74 L118 30" stroke-width="6"/>
+              </g>
+              <path class="rope" d="M170 32 V62" stroke="var(--hm-rope)" stroke-width="4" stroke-linecap="round"/>
+              <g class="man" stroke="var(--hm-man)" stroke-width="6" stroke-linecap="round" fill="none">
+                <g data-p="1"><circle cx="170" cy="82" r="20" fill="var(--hm-skin)"/>
+                  <g class="face-ok" stroke-width="3.5"><path d="M162 78 v2 M178 78 v2"/><path d="M161 90 q9 8 18 0"/></g>
+                  <g class="face-dead" stroke-width="3.5"><path d="M159 74 l7 7 M166 74 l-7 7 M174 74 l7 7 M181 74 l-7 7"/><path d="M162 95 q8 -7 16 0"/></g></g>
+                <path data-p="2" d="M170 102 V170"/>
+                <path data-p="3" d="M170 116 L140 146"/>
+                <path data-p="4" d="M170 116 L200 146"/>
+                <path data-p="5" d="M170 170 L146 214"/>
+                <path data-p="6" d="M170 170 L194 214"/>
+              </g>
+            </svg>
+            <div class="hm-status"><div id="hm-lives" class="hm-lives" aria-label="Lives left"></div><div id="hm-mood" class="hm-mood"></div></div>
+            <div id="hm-score" class="hm-score"></div>
+          </div>
+
+          <div class="hm-play">
+            <div class="hm-bar">
+              <div><label class="field-label" for="hm-topic">Topic</label><select id="hm-topic" class="field-input"></select></div>
+              <span id="hm-cat" class="chip accent"></span>
+            </div>
+            <div class="hm-wordbox"><div id="hm-word" class="hm-word" aria-live="polite"></div></div>
+            <div id="hm-msg" class="pz-msg" role="status" aria-live="polite"></div>
+            <div class="hm-wrongrow"><span class="field-label" style="margin:0">Struck out</span><div id="hm-wrong" class="hm-wrong"></div></div>
+            <div id="hm-keys" class="hm-keys" aria-label="Letters"></div>
+            <div class="hm-actions">
+              <button id="hm-new" class="btn btn-primary" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M20 11a8 8 0 0 0-14.9-3M4 5v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3M20 19v-4h-4"/></svg> New word</button>
+              <button id="hm-hint" class="btn" type="button" title="Reveals one letter but costs one life"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Hint (−1 life)</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="puzzle-block-blast" data-puzzle-panel="block-blast" data-title="Block Blast" class="pz card gm" hidden>
+        <header class="pz-head">
+          <div>
+            <h2>Block Blast</h2>
+            <p>Drag the three blocks onto the 8 × 8 grid. Fill a whole row or column to clear it. When none of the blocks you are given can fit, the game ends.</p>
+          </div>
+          <span class="chip accent">8 × 8 · drag &amp; drop</span>
+        </header>
+        <div class="gm-host" data-game="block-blast"></div>
+      </section>
+
+      <section id="puzzle-bubble-shooter" data-puzzle-panel="bubble-shooter" data-title="Bubble Shooter" class="pz card gm" hidden>
+        <header class="pz-head">
+          <div>
+            <h2>Bubble Shooter</h2>
+            <p>Aim, shoot and join three or more bubbles of the same colour to pop them. Bubbles left hanging fall too. Clear the board before the ceiling comes down.</p>
+          </div>
+          <span class="chip accent">Classic · levels</span>
+        </header>
+        <div class="gm-host" data-game="bubble-shooter"></div>
+      </section>
+
+      <section id="puzzle-crossword" data-puzzle-panel="crossword" data-title="Crossword Puzzle" class="pz card gm" hidden>
+        <header class="pz-head">
+          <div>
+            <h2>Crossword Puzzle</h2>
+            <p>A fresh 12 × 12 crossword every time. Click a square, type your answer, and use the clue lists to find the words.</p>
+          </div>
+          <span class="chip accent">12 × 12</span>
+        </header>
+        <div class="gm-host" data-game="crossword"></div>
+      </section>
+
+      <section id="puzzle-dots-boxes" data-puzzle-panel="dots-boxes" data-title="Dots and Boxes" class="pz card gm" hidden>
+        <header class="pz-head">
+          <div>
+            <h2>Dots and Boxes</h2>
+            <p>Take turns drawing a line between two dots. Complete the fourth side of a box to win it and play again. Most boxes wins. You play against the computer.</p>
+          </div>
+          <span class="chip accent">vs computer</span>
+        </header>
+        <div class="gm-host" data-game="dots-boxes"></div>
+      </section>
+
+      <section id="puzzle-paper-throw" data-puzzle-panel="paper-throw" data-title="Paper Throw" class="pz card gm" hidden>
+        <header class="pz-head">
+          <div>
+            <h2>Paper Throw</h2>
+            <p>Throw the crumpled paper into the bin across the room, but a table fan is blowing and changes direction. Drag back to set power and angle, then let go.</p>
+          </div>
+          <span class="chip accent">Beat the fan</span>
+        </header>
+        <div class="gm-host" data-game="paper-throw"></div>
+      </section>
+
+      <section id="puzzle-tic-tac-toe" data-puzzle-panel="tic-tac-toe" data-title="Tic Tac Toe" class="pz card gm" hidden>
+        <header class="pz-head">
+          <div>
+            <h2>Tic Tac Toe</h2>
+            <p>Get three in a row before the computer does. Pick your side and how clever the computer should be.</p>
+          </div>
+          <span class="chip accent">vs computer</span>
+        </header>
+        <div class="gm-host" data-game="tic-tac-toe"></div>
+      </section>
+
+      <section id="puzzle-wordle" data-puzzle-panel="wordle" data-title="Wordle" class="pz card gm" hidden>
+        <header class="pz-head">
+          <div>
+            <h2>Wordle</h2>
+            <p>Guess the hidden five-letter word in six tries. Green means right letter, right place; yellow means the letter is elsewhere; grey means it is not in the word.</p>
+          </div>
+          <span class="chip accent">5 letters · 6 tries</span>
+        </header>
+        <div class="gm-host" data-game="wordle"></div>
+      </section>
+
+      </div>
+
+    </main>
+  </div>
+</div>
+<div class="scrim" id="scrim"></div>
+<script src="js/site.js"></script>
+<script src="js/content.js"></script>
+<script src="js/visitors.js"></script>
+<script src="js/games/core.js"></script>
+<script src="js/games/tictactoe.js"></script>
+<script src="js/games/dots-boxes.js"></script>
+<script src="js/games/block-blast.js"></script>
+<script src="js/games/bubble-shooter.js"></script>
+<script src="js/games/paper-throw.js"></script>
+<script src="js/games/crossword-data.js"></script>
+<script src="js/games/crossword.js"></script>
+<script src="js/games/wordle-words.js"></script>
+<script src="js/games/wordle.js"></script>
+<script src="js/number-game.js"></script>
+<script src="js/pz-board.js"></script>
+<script src="js/queens.js"></script>
+<script src="js/knights-tour.js"></script>
+<script src="js/hanoi.js"></script>
+<script src="js/hangman-data.js"></script>
+<script src="js/hangman.js"></script>
+<script src="js/puzzles.js"></script>
+</body>
+</html>

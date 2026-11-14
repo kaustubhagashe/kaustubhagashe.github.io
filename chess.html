@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-palette="gold">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chess · Kaustubh Agashe</title>
+  <meta name="description" content="Browse Lichess and Chess.com games with Stockfish analysis, an evaluation bar and move timings.">
+  <meta name="theme-color" content="#1a1712">
+  <meta property="og:title" content="Chess · Kaustubh Agashe">
+  <meta property="og:description" content="Browse Lichess and Chess.com games with Stockfish analysis, an evaluation bar and move timings.">
+  <meta property="og:image" content="assets/social-card.png">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Fraunces144pt-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <script>(function(){var r=document.documentElement,t,p;try{t=localStorage.getItem("site-theme");p=localStorage.getItem("site-palette");}catch(e){}var m={blue:"cobalt",emerald:"teal",amber:"gold"};p=m[p]||p;r.dataset.theme=(t==="bright")?"bright":"dark";r.dataset.palette=/^(teal|gold|cobalt|ember|crimson|violet)$/.test(p)?p:"gold";})();</script>
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/chess.css">
+</head>
+<body class="">
+<div class="shell">
+  <aside class="sidebar" id="sidebar" aria-label="Site">
+    <a class="brand" href="index.html" aria-label="Kaustubh Dattatraya Agashe — home" title="Kaustubh Dattatraya Agashe"><span class="brand-mark"><img src="assets/logo-mark.png" alt="" width="64" height="64"></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="nav-label">Explore</div>
+        <a href="index.html" data-key="home"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg><span>Home</span></a>
+        <a href="about.html" data-key="about"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg><span>About</span><span class="soon">Soon</span></a>
+        <a href="projects.html" data-key="projects"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Projects</span></a>
+        <a href="chess.html" data-key="chess" aria-current="page"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 12h18M12 3v18"/><path d="M3 3h9v9H3zM12 12h9v9h-9z" fill="currentColor" stroke="none" opacity=".35"/></svg><span>Chess</span></a>
+        <a href="puzzles.html" data-key="puzzles"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M12 3a2 2 0 0 1 2 2v1h3a1 1 0 0 1 1 1v3h-1a2 2 0 1 0 0 4h1v3a1 1 0 0 1-1 1h-3v-1a2 2 0 1 0-4 0v1H7a1 1 0 0 1-1-1v-3h1a2 2 0 1 0 0-4H6V7a1 1 0 0 1 1-1h3V5a2 2 0 0 1 2-2z"/></svg><span>Puzzles &amp; Games</span></a>
+        <a href="wall.html" data-key="wall"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.7"/><path d="M21 16l-5-5L8 19"/></svg><span>My Wall</span></a>
+        <a href="blog.html" data-key="blog"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span>Blog</span><span class="soon">Soon</span></a>
+        <a href="advisory.html" data-key="advisory"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg><span>Investment Advisory</span><span class="soon">Soon</span></a>
+        <a href="courses.html" data-key="courses"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z"/><path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg><span>Courses</span><span class="soon">Soon</span></a>
+        <a href="library.html" data-key="library"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M4 4v16M9 4v16"/><path d="M14 5.5l5 1-3.4 13.8-5-1z"/></svg><span>My Library</span><span class="soon">Soon</span></a>
+        <a href="apps.html" data-key="apps"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/></svg><span>My Apps</span></a>
+    </nav>
+    <div class="side-foot">
+      <div class="palette-row"><div class="swatches" role="group" aria-label="Accent colour"><button class="swatch" type="button" data-palette="gold" aria-label="Yellow accent" title="Yellow" aria-pressed="false"></button>
+          <button class="swatch" type="button" data-palette="teal" aria-label="Green accent" title="Green" aria-pressed="false"></button>
+          <button class="swatch" type="button" data-palette="cobalt" aria-label="Blue accent" title="Blue" aria-pressed="false"></button>
+          <button class="swatch" type="button" data-palette="ember" aria-label="Ember accent" title="Ember" aria-pressed="false"></button>
+          <button class="swatch" type="button" data-palette="crimson" aria-label="Crimson accent" title="Crimson" aria-pressed="false"></button>
+          <button class="swatch" type="button" data-palette="violet" aria-label="Violet accent" title="Violet" aria-pressed="false"></button></div></div>
+        <div class="palette-row"><button class="mode-btn" type="button" aria-pressed="false" aria-label="Toggle bright and dark mode"><svg class="icon i-sun" viewBox="0 0 24 24" aria-hidden="true" ><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="icon i-moon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg><span class="mode-text">Bright</span></button></div>
+      <p class="copy">&copy; 2026 Kaustubh Dattatraya Agashe.<br>Hosted on GitHub Pages.</p>
+    </div>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <a href="index.html" aria-label="Kaustubh Dattatraya Agashe — home"><span class="brand-mark"><img src="assets/logo-mark-192.png" alt="" width="38" height="38"></span></a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </header>
+    <main class="page wide" id="main">
+      <div class="chess-head">
+        <div>
+          <div class="eyebrow">Chess</div>
+          <h1>Game archive &amp; engine review</h1>
+        </div>
+        <p class="lede">Lichess, Chess.com or any PGN — with Stockfish, an evaluation bar and per-move clock times.</p>
+      </div>
+
+      <section class="card source" id="source-card" aria-label="Load games">
+        <div class="source-bar">
+          <button id="source-toggle" class="btn" type="button" aria-expanded="true" aria-controls="source-grid" title="Show or hide the game source"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Source</span><svg class="icon chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <select id="game-dropdown" class="field-input" aria-label="Game"><option value="">Load games from a platform, or upload a PGN database…</option></select>
+        </div>
+        <div class="source-grid" id="source-grid">
+          <div>
+            <label class="field-label" for="platform-select">Platform</label>
+            <select id="platform-select" class="field-input">
+              <option value="lichess">Lichess</option>
+              <option value="chesscom">Chess.com</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="chess-username">Username</label>
+            <input id="chess-username" class="field-input" type="text" value="x15kaustubh" autocomplete="off" spellcheck="false" placeholder="Username">
+          </div>
+          <div>
+            <label class="field-label" for="year-select">Year</label>
+            <select id="year-select" class="field-input"></select>
+          </div>
+          <div class="source-actions">
+            <button id="load-btn" class="btn btn-primary" type="button">Load games</button>
+            <label class="btn" for="pgn-file-input" title="Import a local .pgn database"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg> Upload PGN</label>
+            <input type="file" id="pgn-file-input" accept=".pgn,.PGN,.txt" hidden>
+          </div>
+        </div>
+        <p id="load-status" class="load-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <div class="workspace">
+        <!-- ===== Board column ===== -->
+        <div class="board-col">
+          <div class="player" id="player-top"><span class="pdot black"></span><span class="pname">Black</span><span class="prating"></span></div>
+
+          <div class="board-row">
+            <div id="eval-bar" class="evalbar" role="img" aria-label="Evaluation bar" title="Evaluation: White at the bottom, Black at the top">
+              <span id="eval-top" class="evalnum top"></span>
+              <div id="eval-fill" class="evalfill" style="height:50%"></div>
+              <span id="eval-bottom" class="evalnum bottom"></span>
+            </div>
+            <div class="board-wrap">
+              <div id="board" class="board" role="grid" aria-label="Chess board"></div>
+              <svg id="arrow-layer" class="arrow-layer" viewBox="0 0 80 80" aria-hidden="true"></svg>
+            </div>
+          </div>
+
+          <div class="player" id="player-bottom"><span class="pdot white"></span><span class="pname">White</span><span class="prating"></span></div>
+
+          <div class="board-controls" role="toolbar" aria-label="Move navigation">
+            <button id="nav-first" class="ctl" type="button" title="First move (Home)" aria-label="First move"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M6 5v14M18 6l-7 6 7 6zM11 6 4 12l7 6z" /></svg></button>
+            <button id="nav-prev"  class="ctl ctl-main" type="button" title="Previous move (←)" aria-label="Previous move"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button id="nav-next"  class="ctl ctl-main" type="button" title="Next move (→)" aria-label="Next move"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M9 6l6 6-6 6"/></svg></button>
+            <button id="nav-last"  class="ctl" type="button" title="Last move (End)" aria-label="Last move"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M18 5v14M6 6l7 6-7 6zM13 6l7 6-7 6z"/></svg></button>
+            <span class="ctl-sep"></span>
+            <button id="flip-btn" class="ctl" type="button" title="Flip board (F)" aria-label="Flip board"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><path d="M7 4v16M3 8l4-4 4 4"/><path d="M17 20V4M13 16l4 4 4-4"/></svg></button>
+            <label class="arrow-toggle" title="Draw the engine's best move on the board"><input id="arrow-check" type="checkbox" checked> Best-move arrow</label>
+          </div>
+        </div>
+
+        <!-- ===== Side column ===== -->
+        <div class="side-col">
+          <div class="side-inner">
+            <section class="card engine" aria-label="Engine">
+              <div class="engine-top">
+                <div class="engine-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span>Engine</span></div>
+                <select id="engine-select" class="field-input engine-select" aria-label="Engine">
+                  <option value="auto">Auto — cloud, then Stockfish</option>
+                  <option value="local">Stockfish 19 (in your browser)</option>
+                  <option value="cloud">Lichess cloud only</option>
+                </select>
+              </div>
+              <div class="engine-score">
+                <div id="eval-score" class="score">0.00</div>
+                <div class="score-meta">
+                  <span id="eval-source" class="chip">Ready</span>
+                  <span id="eval-depth" class="depth"></span>
+                </div>
+              </div>
+              <dl class="engine-rows">
+                <div><dt>Best move</dt><dd id="engine-best-move" class="mono">—</dd></div>
+                <div><dt>Line</dt><dd id="engine-pv" class="mono pv">—</dd></div>
+              </dl>
+              <p id="engine-note" class="engine-note" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="card moves" aria-label="Moves">
+              <div class="moves-head">
+                <div class="engine-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" ><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Moves &amp; clock</span></div>
+                <span id="total-moves-badge" class="chip">0 moves</span>
+              </div>
+              <div id="game-meta" class="game-meta"><span class="muted">No game loaded yet…</span></div>
+              <div class="legend"><span>Time per move</span><span class="tchip t-fast">≤ 5 s</span><span class="tchip t-mid">≤ 30 s</span><span class="tchip t-slow">&gt; 30 s</span></div>
+              <div id="moves-list" class="moves-list" tabindex="0" aria-label="Move list"><span class="muted pad">Moves will appear here…</span></div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<div class="scrim" id="scrim"></div>
+<script src="js/site.js"></script>
+<script src="js/content.js"></script>
+<script src="js/visitors.js"></script>
+<script src="vendor/chess.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/chess.js"></script>
+</body>
+</html>
