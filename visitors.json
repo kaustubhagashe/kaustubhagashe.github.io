@@ -1,0 +1,15 @@
+{
+  "_readme": "Visitor counter settings. Counts live on the free Abacus counting service (abacus.jasoncameron.dev), so they survive every redeploy of this site. See the Editing and Publishing Guide, section 10, before changing anything here.",
+  "enabled": true,
+  "namespace": "kaustubhagashe-github-io",
+  "count_on_localhost": true,
+  "baseline": {
+    "site": 0,
+    "pages": {}
+  },
+  "last_recorded": {
+    "date": "2026-11-13",
+    "site": 0,
+    "pages": {}
+  }
+}
