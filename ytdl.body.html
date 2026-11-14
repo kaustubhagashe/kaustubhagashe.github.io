@@ -1,0 +1,98 @@
+
+        <nav aria-label="Breadcrumb" class="crumbs"><a href="../projects.html">Projects</a><span>/</span><span>YouTube Downloader</span></nav>
+        <div class="page-head">
+            <div class="eyebrow">Tool</div>
+            <h1>YouTube Downloader</h1>
+            <p class="lede">Paste a YouTube link, see the video qualities that exist for it, choose a folder on your computer and download. You get live progress, the time taken and the exact place the file was saved.</p>
+            <p class="tool-note"><strong>How it works.</strong> A web page is not allowed to save YouTube videos by itself, so this page drives a small helper program (it uses the open-source <em>yt-dlp</em>) that runs on <em>your own computer</em>. Nothing is uploaded to this website. Please download only videos you own, that are free to reuse, or that you have permission to save, and respect YouTube’s terms.</p>
+        </div>
+
+        <section class="tool-section">
+            <h2 class="tool-h2"><span class="step-no">0</span>Start the helper</h2>
+            <div class="tool-panel">
+                <div class="helper-status" data-helper-status data-feature="ytdl" data-state="off">
+                    <span class="hs-dot" aria-hidden="true"></span>
+                    <div class="hs-body"><strong class="hs-text">Checking for the helper…</strong><div class="hs-detail"></div></div>
+                    <button class="btn hs-retry" type="button">Check again</button>
+                </div>
+                <details>
+                    <summary>How do I start the helper? (one-time setup, about 5 minutes)</summary>
+                    <ol class="howto">
+                        <li>Install <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python 3.10 or newer</a> (on Windows tick <em>Add Python to PATH</em>). For high resolutions with sound, also install <a href="https://ffmpeg.org/download.html" target="_blank" rel="noopener">FFmpeg</a>.</li>
+                        <li>Download the <strong>helper</strong> folder from your site’s GitHub repository (or use your copy of the site folder). It contains <code>server.py</code>, <code>ytdl.py</code>, <code>stocks.py</code> and the start scripts.</li>
+                        <li><strong>Windows:</strong> double-click <code>start_helper.bat</code>. <strong>Mac / Linux:</strong> run <code>./start_helper.sh</code> in a terminal. The first run installs what it needs.</li>
+                        <li>Leave that window open. This page turns green and says <em>Helper connected</em>. Chrome, Edge and Firefox work best; if the browser asks to allow this site to reach apps on your device, choose <strong>Allow</strong>.</li>
+                    </ol>
+                    <p class="hint">Helper files: <a href="../helper/server.py" download>server.py</a> · <a href="../helper/ytdl.py" download>ytdl.py</a> · <a href="../helper/start_helper.bat" download>start_helper.bat</a> · <a href="../helper/start_helper.sh" download>start_helper.sh</a> · <a href="../helper/requirements.txt" download>requirements.txt</a></p>
+                </details>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <h2 class="tool-h2"><span class="step-no">1</span>The video link</h2>
+            <div class="tool-panel">
+                <div class="field">
+                    <label for="yt-url">YouTube video link</label>
+                    <div class="row-inline">
+                        <input id="yt-url" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://www.youtube.com/watch?v=…">
+                        <button id="yt-check" class="btn btn-primary" type="button">{{icon:eye}} Check video</button>
+                    </div>
+                </div>
+                <div id="yt-msg" class="status" role="status" aria-live="polite"></div>
+                <div id="yt-meta" class="vid-card" hidden>
+                    <img id="yt-thumb" alt="" width="160" height="90">
+                    <div><h3 id="yt-title"></h3><p id="yt-sub" class="hint"></p></div>
+                </div>
+                <details>
+                    <summary>Advanced: videos that ask you to sign in</summary>
+                    <div class="field" style="margin-top:12px">
+                        <label for="yt-browser">Use the sign-in of this browser</label>
+                        <select id="yt-browser"><option value="">None (default)</option><option value="chrome">Chrome</option><option value="edge">Edge</option><option value="firefox">Firefox</option><option value="brave">Brave</option></select>
+                    </div>
+                    <p class="hint">Only needed when YouTube says “Sign in to confirm you’re not a bot”. Close that browser first if the helper reports it cannot read its cookies. You can also put a <code>cookies.txt</code> file next to <code>server.py</code>.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="tool-section" id="yt-step2" hidden>
+            <h2 class="tool-h2"><span class="step-no">2</span>Video quality</h2>
+            <div class="tool-panel">
+                <div id="yt-quals" class="qgrid" role="radiogroup" aria-label="Video quality"></div>
+                <p id="yt-qnote" class="hint"></p>
+            </div>
+        </section>
+
+        <section class="tool-section" id="yt-step3" hidden>
+            <h2 class="tool-h2"><span class="step-no">3</span>Where to save it</h2>
+            <div class="tool-panel">
+                <div class="field">
+                    <label for="yt-folder">Folder on your computer</label>
+                    <div class="row-inline">
+                        <input id="yt-folder" type="text" autocomplete="off" spellcheck="false" placeholder="Click “Choose folder…”">
+                        <button id="yt-pick" class="btn" type="button">{{icon:folder}} Choose folder…</button>
+                    </div>
+                </div>
+                <p class="hint">“Choose folder…” opens your computer’s folder window. You can also type or paste a folder path. It is created if it does not exist.</p>
+                <div class="btn-row">
+                    <button id="yt-go" class="btn btn-primary" type="button">{{icon:download}} Download</button>
+                    <button id="yt-cancel" class="btn" type="button" hidden>Cancel download</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="tool-section" id="yt-step4" hidden>
+            <h2 class="tool-h2"><span class="step-no">4</span>Progress</h2>
+            <div class="tool-panel">
+                <p id="yt-start" class="log-line" hidden></p>
+                <div id="yt-bar-wrap" hidden>
+                    <div class="big-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="yt-bar"><div id="yt-fill"></div></div>
+                    <div class="prog-meta"><strong id="yt-pct">0%</strong><span id="yt-run">Running: 00:00</span><span id="yt-extra" class="hint"></span></div>
+                </div>
+                <p id="yt-done" class="log-line" hidden></p>
+                <div id="yt-result" class="result-card" hidden>
+                    <p id="yt-result-text"></p>
+                    <button id="yt-copy" class="btn" type="button">Copy file path</button>
+                </div>
+                <p id="yt-error" class="result-err" hidden role="alert"></p>
+            </div>
+        </section>

@@ -1,0 +1,119 @@
+
+        <nav aria-label="Breadcrumb" class="crumbs"><a href="../projects.html">Projects</a><span>/</span><span>Handwriting Digitizer</span></nav>
+        <div class="page-head">
+            <div class="eyebrow">Tool</div>
+            <h1>Handwriting Digitizer</h1>
+            <p class="lede">Photograph your handwritten pages, pick the folder, choose the language, and get a formatted Word document. Works for Marathi, Hindi, Sanskrit and other Indian languages, with English words and Devanagari numerals kept as written.</p>
+            <p class="tool-note"><strong>Private by design.</strong> Everything runs in your browser. Your photos go directly from your computer to Google Cloud Vision using <em>your own</em> API key. They are never uploaded to this website.</p>
+        </div>
+
+        <!-- 1. KEY -->
+        <section class="tool-section">
+            <h2 class="tool-h2"><span class="step-no">1</span>Your Google Vision API key</h2>
+            <div class="tool-panel">
+                <div class="field">
+                    <label for="apikey">API key</label>
+                    <input id="apikey" type="password" autocomplete="off" spellcheck="false" placeholder="AIza…">
+                </div>
+                <label class="check"><input id="remember" type="checkbox"> Remember the key in this browser (don't tick on a shared computer)</label>
+                <details>
+                    <summary>How do I get a free key?</summary>
+                    <ol class="howto">
+                        <li>Open <a href="https://console.cloud.google.com" target="_blank" rel="noopener">Google Cloud Console</a>, create a project and enable billing (needed even for the free tier).</li>
+                        <li><strong>APIs &amp; Services &rarr; Library</strong> &rarr; search <em>Cloud Vision API</em> &rarr; <strong>Enable</strong>.</li>
+                        <li><strong>APIs &amp; Services &rarr; Credentials &rarr; + Create credentials &rarr; API key</strong>.</li>
+                        <li>Open the key and set <strong>API restrictions</strong> to <em>Cloud Vision API</em>, and <strong>Application restrictions &rarr; Websites</strong> to <code id="origin">this site's address</code>. This stops others from using your key.</li>
+                        <li>Google gives the first 1,000 pages per month free; set a budget alert in Billing in case you go over.</li>
+                    </ol>
+                </details>
+            </div>
+        </section>
+
+        <!-- 2. IMAGES -->
+        <section class="tool-section">
+            <h2 class="tool-h2"><span class="step-no">2</span>Choose the images folder</h2>
+            <div class="tool-panel">
+                <div class="btn-row">
+                    <button class="btn btn-primary" id="pickFolder" type="button">{{icon:folder}} Choose folder…</button>
+                    <button class="btn" id="pickFiles" type="button">or choose image files…</button>
+                </div>
+                <input id="folderInput" type="file" webkitdirectory multiple hidden>
+                <input id="filesInput" type="file" accept="image/*" multiple hidden>
+                <p class="hint">Name each photo with its page number: <code>1.jpg</code>, <code>002.jpg</code>, <code>Page_3.png</code>. Pages are ordered by that number.</p>
+                <div id="imgStatus" class="status" role="status"></div>
+                <div id="thumbs" class="thumbs"></div>
+            </div>
+        </section>
+
+        <!-- 3. LANGUAGE -->
+        <section class="tool-section">
+            <h2 class="tool-h2"><span class="step-no">3</span>Choose the language</h2>
+            <div class="tool-panel">
+                <div class="field">
+                    <label for="lang">Language of the handwriting</label>
+                    <select id="lang"></select>
+                </div>
+                <p class="hint">Pick <em>Auto-detect</em> for pages that mix several languages (e.g. Marathi + Hindi + Sanskrit + English). English words are always kept as English.</p>
+            </div>
+        </section>
+
+        <!-- 4. READ -->
+        <section class="tool-section">
+            <h2 class="tool-h2"><span class="step-no">4</span>Read the pages</h2>
+            <div class="tool-panel">
+                <div class="inline-fields">
+                    <div class="field"><label for="fromPage">From page</label><input id="fromPage" type="number" min="0" disabled></div>
+                    <div class="field"><label for="toPage">To page</label><input id="toPage" type="number" min="0" disabled></div>
+                </div>
+                <label class="check"><input id="force" type="checkbox"> Read again even if already done</label>
+                <p id="runInfo" class="hint">Choose images first.</p>
+                <div class="btn-row">
+                    <button class="btn btn-primary" id="runBtn" type="button" disabled>{{icon:play}} Read pages</button>
+                    <button class="btn" id="stopBtn" type="button" hidden>Stop</button>
+                </div>
+                <div class="progress" id="progressWrap" hidden><div id="progressBar"></div></div>
+                <div id="runStatus" class="status" role="status"></div>
+            </div>
+        </section>
+
+        <!-- 5. REVIEW -->
+        <section class="tool-section" id="reviewSection" hidden>
+            <h2 class="tool-h2"><span class="step-no">5</span>Review &amp; correct</h2>
+            <p class="hint" style="margin-bottom:1rem">Handwriting recognition is never perfect. Compare the photo with the text, fix mistakes, and change the type or alignment of any block. Edits are saved in this browser.</p>
+            <div class="review-bar">
+                <button class="btn" id="prevPage" type="button" aria-label="Previous page">&larr;</button>
+                <select id="pageSelect" aria-label="Page"></select>
+                <button class="btn" id="nextPage" type="button" aria-label="Next page">&rarr;</button>
+                <span id="detected" class="hint"></span>
+            </div>
+            <div class="review-grid">
+                <div class="review-image"><img id="pageImg" alt="Photo of the selected page"></div>
+                <div>
+                    <div id="blocks"></div>
+                    <button class="btn" id="addBlock" type="button">+ Add block</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. WORD -->
+        <section class="tool-section" id="buildSection" hidden>
+            <h2 class="tool-h2"><span class="step-no">6</span>Create the Word file</h2>
+            <div class="tool-panel">
+                <div class="inline-fields">
+                    <div class="field"><label for="pageSize">Page size</label>
+                        <select id="pageSize"><option>A5</option><option>A4</option><option>B5</option><option>Letter</option></select></div>
+                    <div class="field"><label for="bodySize">Body font size (pt)</label>
+                        <input id="bodySize" type="number" min="9" max="24" value="13"></div>
+                    <div class="field"><label for="indicFont">Devanagari font</label>
+                        <input id="indicFont" type="text" value="Nirmala UI"></div>
+                </div>
+                <label class="check"><input id="pageNums" type="checkbox" checked> Add page numbers</label>
+                <label class="check"><input id="devaNums" type="checkbox" checked> Use Devanagari digits (१, २, ३)</label>
+                <div class="btn-row">
+                    <button class="btn btn-primary" id="buildBtn" type="button">{{icon:word}} Build &amp; download Word file</button>
+                    <button class="btn" id="clearBtn" type="button">Clear saved data from this browser</button>
+                </div>
+                <div id="buildStatus" class="status" role="status"></div>
+            </div>
+        </section>
+    
