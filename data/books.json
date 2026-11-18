@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "updated": "2026-11-18",
+  "books": [
+    {
+      "section": "shelf",
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "publisher": "Penguin Random House",
+      "year": "2018",
+      "isbn": "9780735211292",
+      "cover": "https://m.media-amazon.com/images/P/0735211299.01.LZZZZZZZ.jpg",
+      "pages": 320,
+      "genre": "Self-help",
+      "rating": 5,
+      "dateRead": "2025-03-14",
+      "notes": "Small changes, compounding. Changed how I plan my mornings.",
+      "id": "atomic-habits-9780735211292"
+    },
+    {
+      "section": "shelf",
+      "title": "The Psychology of Money",
+      "author": "Morgan Housel",
+      "publisher": "Harriman House",
+      "year": "2020",
+      "isbn": "9780857197689",
+      "cover": "https://m.media-amazon.com/images/P/0857197681.01.LZZZZZZZ.jpg",
+      "pages": 256,
+      "genre": "Finance",
+      "rating": 5,
+      "dateRead": "2025-07-02",
+      "id": "the-psychology-of-money-9780857197689"
+    },
+    {
+      "section": "shelf",
+      "title": "Deep Work",
+      "author": "Cal Newport",
+      "publisher": "Grand Central Publishing",
+      "year": "2016",
+      "isbn": "9781455586691",
+      "cover": "https://m.media-amazon.com/images/P/1455586692.01.LZZZZZZZ.jpg",
+      "pages": 304,
+      "genre": "Productivity",
+      "rating": 4,
+      "dateRead": "2024-11-20",
+      "color": "#2f4a6b",
+      "id": "deep-work-9781455586691"
+    },
+    {
+      "section": "shelf",
+      "title": "Sapiens",
+      "author": "Yuval Noah Harari",
+      "publisher": "Harper",
+      "year": "2015",
+      "isbn": "9780062316097",
+      "cover": "https://m.media-amazon.com/images/P/0062316095.01.LZZZZZZZ.jpg",
+      "pages": 464,
+      "genre": "History",
+      "rating": 4,
+      "dateRead": "2024",
+      "id": "sapiens-9780062316097"
+    },
+    {
+      "section": "shelf",
+      "title": "Thinking, Fast and Slow",
+      "author": "Daniel Kahneman",
+      "publisher": "Farrar, Straus and Giroux",
+      "year": "2011",
+      "isbn": "9780374533557",
+      "cover": "https://m.media-amazon.com/images/P/0374533555.01.LZZZZZZZ.jpg",
+      "pages": 499,
+      "genre": "Psychology",
+      "rating": 5,
+      "dateRead": "2023",
+      "id": "thinking-fast-and-slow-9780374533557"
+    },
+    {
+      "section": "shelf",
+      "title": "The Alchemist",
+      "author": "Paulo Coelho",
+      "publisher": "HarperOne",
+      "year": "1988",
+      "isbn": "9780062315007",
+      "cover": "https://m.media-amazon.com/images/P/0062315005.01.LZZZZZZZ.jpg",
+      "pages": 208,
+      "genre": "Fiction",
+      "rating": 4,
+      "dateRead": "2022",
+      "id": "the-alchemist-9780062315007"
+    },
+    {
+      "section": "wishlist",
+      "title": "Meditations",
+      "author": "Marcus Aurelius",
+      "publisher": "Modern Library",
+      "year": "2002",
+      "isbn": "9780812968255",
+      "cover": "https://m.media-amazon.com/images/P/0812968255.01.LZZZZZZZ.jpg",
+      "pages": 256,
+      "genre": "Philosophy",
+      "notes": "Gregory Hays translation.",
+      "id": "meditations-9780812968255"
+    },
+    {
+      "section": "shelf",
+      "title": "Zero to One",
+      "author": "Peter Thiel",
+      "publisher": "Currency",
+      "year": "2014",
+      "isbn": "9780804139298",
+      "cover": "https://m.media-amazon.com/images/P/0804139296.01.LZZZZZZZ.jpg",
+      "pages": 224,
+      "genre": "Business",
+      "id": "zero-to-one-9780804139298"
+    },
+    {
+      "section": "shelf",
+      "title": "My Life and Work",
+      "author": "Henry Ford",
+      "cover": "https://m.media-amazon.com/images/I/612qyV9yayL._SY425_.jpg",
+      "pages": 186,
+      "genre": "Biography",
+      "rating": 5,
+      "id": "my-life-and-work"
+    },
+    {
+      "section": "shelf",
+      "title": "How Life Imitates Chess",
+      "author": "Garry Kasparov",
+      "isbn": "9781529156294",
+      "cover": "https://m.media-amazon.com/images/I/71pL0Jk9+nL._SY425_.jpg",
+      "genre": "Strategy",
+      "rating": 5,
+      "id": "how-life-imitates-chess-9781529156294"
+    },
+    {
+      "section": "shelf",
+      "title": "Deep Thinking",
+      "author": "Garry Kasparov",
+      "cover": "https://m.media-amazon.com/images/I/41-azGA-T3L._SY445_SX342_FMwebp_.jpg",
+      "genre": "Business",
+      "id": "deep-thinking"
+    },
+    {
+      "section": "shelf",
+      "title": "My Great Predecessors - Part V",
+      "author": "Garry Kasparov",
+      "cover": "https://m.media-amazon.com/images/I/712XcsdATzL._SY385_.jpg",
+      "genre": "Chess",
+      "id": "my-great-predecessors-part-v"
+    },
+    {
+      "section": "shelf",
+      "title": "Kasparov: How His Predecessors Misled Him About Chess",
+      "author": "Tibor Karolyi",
+      "publisher": "Batsford Chess",
+      "cover": "https://m.media-amazon.com/images/I/71rAl5n7qiL._SY425_.jpg",
+      "genre": "Chess",
+      "id": "kasparov-how-his-predecessors-misled-him-about-chess"
+    },
+    {
+      "section": "shelf",
+      "title": "My 60 Memorable Games",
+      "author": "Bobby Fischer",
+      "cover": "https://m.media-amazon.com/images/I/41Xv+jwuNnL._SY445_SX342_FMwebp_.jpg",
+      "genre": "Chess",
+      "id": "my-60-memorable-games"
+    },
+    {
+      "section": "shelf",
+      "title": "Algorithms to Live By: The Computer Science of Human Decisions",
+      "author": "Brian Christian, Tom Griffiths",
+      "cover": "https://m.media-amazon.com/images/I/41VC83lZIzL._SY445_SX342_FMwebp_.jpg",
+      "id": "algorithms-to-live-by-the-computer-science-of-human-decisions"
+    },
+    {
+      "section": "shelf",
+      "title": "Mind Master",
+      "author": "Vishwanathan Anand",
+      "publisher": "Hachette India",
+      "cover": "https://m.media-amazon.com/images/I/41X+QKYJSzL._SY445_SX342_FMwebp_.jpg",
+      "pages": 304,
+      "genre": "Biography",
+      "id": "mind-master"
+    },
+    {
+      "section": "shelf",
+      "title": "STEVE JOBS (PB): THE EXCLUSIVE BIOGRAPHY",
+      "author": "Walter Issacson",
+      "publisher": "Abacus",
+      "cover": "https://m.media-amazon.com/images/I/81LpDI74t2L._SY425_.jpg",
+      "pages": 592,
+      "genre": "Biography",
+      "id": "steve-jobs-pb-the-exclusive-biography"
+    }
+  ]
+}
