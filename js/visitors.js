@@ -26,11 +26,23 @@
       return r.json().then(function (j) { return Number(j.value) || 0; });
     });
   }
-  // hit = add one (once per session), otherwise just read
+  // hit = add one (when this visitor has not been counted yet under the chosen mode), otherwise just read.
+  // count_mode in data/visitors.json:  "session" (default: once per browser tab session),
+  //                                    "day" (once per browser per day), "every_load" (every page load; for testing).
+  function today() { var d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+  function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { } return null; }
   function read(cfg, name, allowHit) {
-    var seen = 'vc:' + cfg.namespace + ':' + name;
-    var hit = allowHit && !ss(seen);
-    return call(cfg, hit ? 'hit' : 'get', name).then(function (v) { if (hit) ss(seen, '1'); return v; });
+    var mode = cfg.count_mode === 'day' || cfg.count_mode === 'every_load' ? cfg.count_mode : 'session';
+    var seen = 'vc:' + cfg.namespace + ':' + name, hit = false;
+    if (allowHit) {
+      if (mode === 'every_load') hit = true;
+      else if (mode === 'day') hit = ls(seen) !== today();
+      else hit = !ss(seen);
+    }
+    return call(cfg, hit ? 'hit' : 'get', name).then(function (v) {
+      if (hit) { if (mode === 'day') ls(seen, today()); else if (mode === 'session') ss(seen, '1'); }
+      return v;
+    });
   }
   function base(cfg, key) {
     var b = cfg.baseline || {};

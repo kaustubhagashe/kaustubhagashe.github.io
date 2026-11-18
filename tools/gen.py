@@ -70,7 +70,7 @@ NAV = [
     ("blog",     "Blog",                "blog.html",      "blog",     False),
     ("advisory", "Investment Advisory", "advisory.html",  "advisory", False),
     ("courses",  "Courses",             "courses.html",   "courses",  False),
-    ("library",  "My Library",          "library.html",   "library",  False),
+    ("library",  "My Library",          "library.html",   "library",  True),
     ("apps",     "My Apps",             "apps.html",      "apps",     True),
 ]
 PALETTES = [("gold", "Yellow"), ("teal", "Green"), ("cobalt", "Blue"), ("ember", "Ember"), ("crimson", "Crimson"), ("violet", "Violet")]
@@ -209,7 +209,7 @@ def build():
             "blog": "Notes and essays.",
             "advisory": "Investment advisory.",
             "courses": "Courses and teaching material.",
-            "library": "Books and reading notes.",
+            "library": "My bookshelf and wishlist, with covers, ratings and notes.",
             "apps": "My Android apps: Thought of The Day and PrepPulse.",
         }
         tag = "" if live else '<span class="chip tag" data-soon="%s">Coming soon</span>' % k
@@ -238,7 +238,6 @@ def build():
         "blog":     ("Blog", "Notes, essays and write-ups.", "blog"),
         "advisory": ("Investment Advisory", "Perspectives on investing and advisory work.", "advisory"),
         "courses":  ("Courses", "Teaching material and course notes.", "courses"),
-        "library":  ("My Library", "Books I own, read and recommend.", "library"),
     }
     for k, (t, b, ic) in soon.items():
         body = coming_soon(k, t, b, ic)
@@ -246,6 +245,37 @@ def build():
             body += f'''
       <p class="contact">Contact me at: <a href="mailto:{EMAIL}">{EMAIL}</a></p>'''
         write(f"{k}.html", shell(key=k, title=t, body=body, desc=b))
+
+
+    # ---------------- My Library ----------------
+    lib_html = '''      <div class="page-head">
+        <div class="eyebrow">Reading</div>
+        <h1>My Library</h1>
+        <p class="lede">The books on my shelf, and the ones I want to read next.</p>
+      </div>
+      <div class="lib-toolbar">
+        <div class="lib-tabs" id="lib-tabs" role="tablist" aria-label="Shelf or wishlist"></div>
+        <label class="lib-f"><span>Search</span><input id="lib-q" type="search" placeholder="Title, author or genre" autocomplete="off"></label>
+        <label class="lib-f"><span>Genre</span><select id="lib-genre"></select></label>
+        <label class="lib-f"><span>Sort by</span><select id="lib-sort"><option value="recent">Recently read</option><option value="title">Title (A–Z)</option><option value="author">Author (A–Z)</option><option value="rating">Rating</option><option value="listed">Order in my list</option></select></label>
+      </div>
+      <p id="lib-summary" class="hint" role="status" aria-live="polite"></p>
+      <div id="lib-grid" class="lib-grid" aria-label="Books"></div>
+      <div id="md-body" data-md="content/library.md"></div>
+      <div class="lib-modal" id="lib-modal" hidden role="dialog" aria-modal="true" aria-labelledby="lib-m-title">
+        <div class="lib-card">
+          <button class="lib-x" id="lib-close" type="button" aria-label="Close">&times;</button>
+          <div class="lib-m-cover" id="lib-m-cover"></div>
+          <div class="lib-m-body">
+            <h2 id="lib-m-title"></h2><p class="lib-m-author" id="lib-m-author"></p><div id="lib-m-rating" class="lib-stars"></div>
+            <dl class="lib-meta" id="lib-m-meta"></dl><p class="lib-notes" id="lib-m-notes"></p>
+            <div class="lib-links" id="lib-m-links"></div>
+          </div>
+        </div>
+      </div>'''
+    write("library.html", shell(key="library", title="My Library", body=lib_html, desc="Books on my shelf and wishlist.",
+                                head_extra='<link rel="stylesheet" href="css/library.css">',
+                                scripts_extra='<script src="js/library.js"></script>'))
 
     # ---------------- My Apps ----------------
     apps_html = '''      <div class="page-head">

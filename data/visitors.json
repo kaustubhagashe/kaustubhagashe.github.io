@@ -3,6 +3,7 @@
   "enabled": true,
   "namespace": "kaustubhagashe-github-io",
   "count_on_localhost": true,
+  "count_mode": "session",
   "baseline": {
     "site": 0,
     "pages": {}
